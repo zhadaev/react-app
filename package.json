@@ -1,0 +1,13 @@
+{
+  "name": "react-app",
+  "version": "1.0.0",
+  "description": "React First App",
+  "main": "index.html",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Ivan Zhadaev",
+  "devDependencies": {
+    "express": "^4.14.0"
+  }
+}
