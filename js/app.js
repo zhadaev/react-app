@@ -2,23 +2,34 @@ var root = document.getElementById('root'),
 news = [
 	{
 		title: 'First news',
+		preview: 'Lorem ipsum dolor sit amet',
 		content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita maxime, nobis magni itaque veritatis autem tenetur cum consequatur nemo error amet ipsam, at reiciendis porro tempora eius doloribus ratione, aperiam.'
 	},
 	{
 		title: 'Second news',
+		preview: 'Lorem ipsum dolor sit amet',
 		content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita maxime, nobis magni itaque veritatis autem tenetur cum consequatur nemo error amet ipsam, at reiciendis porro tempora eius doloribus ratione, aperiam.'
 	},
 	{
 		title: 'Third news',
+		preview: 'Lorem ipsum dolor sit amet',
 		content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita maxime, nobis magni itaque veritatis autem tenetur cum consequatur nemo error amet ipsam, at reiciendis porro tempora eius doloribus ratione, aperiam.'
 	}
 ];
 
 var Article =  React.createClass({
+	getInitialState() {
+		return {
+			visible: false
+		}
+	},
+
 	render: function(){
 		return (
 			<div>
 				<h3 className="news-item__title">{this.props.data.title}</h3>
+				<div className="news-item__preview">{this.props.data.preview}</div>
+				<a href="#" className="news-item__more">Подробнее</a>
 				<div className="news-item__content">{this.props.data.content}</div>
 			</div>
 		);
