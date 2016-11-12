@@ -18,27 +18,35 @@ news = [
 ];
 
 var TestInput = React.createClass({
-	getInitialState: function(){
-		return {
-			inputValue: ''
-		}
-	},
 
-	changeInput: function(e){
-		this.setState({inputValue: e.target.value});
+	// getInitialState: function(){
+	// 	return {
+	// 		inputValue: ''
+	// 	}
+	// },
+
+	//changeInput: function(e){
+		//this.setState({inputValue: e.target.value});
+	//},
+
+	showInputValue: function(){
+		var someVar = ReactDOM.findDOMNode(this.refs.myTestInput).value;
+		console.log(this.refs);
+		console.log(someVar);
+
 	},
 
 	render: function(){
 		return (
 			<div>
-				<input 
-					type="text" 
-					onChange={this.changeInput} 
-					value={this.state.inputValue} 
-					placeholder="Input some text..." 
+				<input
+					type="text"
+					defaultValue = ""
+					ref = "myTestInput"
+					placeholder="Input some text..."
 				/>
-				<p>{this.state.inputValue}</p>	
-			</div>	
+				<button ref="button-ref" onClick={this.showInputValue}>Show Input value</button>
+			</div>
 		)
 	}
 });
@@ -63,7 +71,7 @@ var Article =  React.createClass({
 			content = this.props.data.content,
 			visible = this.state.visible;
 
-		//console.log('render', this);	
+		//console.log('render', this);
 
 		return (
 			<div>
@@ -115,7 +123,7 @@ var News = React.createClass({
 				<hr/>
 				<div className="counter-wrapper">Now counter equals to {this.state.counter}</div>
 				<button onClick={this.incrementCounter}>+1</button>
-			</div>	
+			</div>
 		);
 	}
 });
