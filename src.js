@@ -3,22 +3,22 @@ import React from 'react';
 var root = document.getElementById('root'),
 	ee = new EventEmitter(),
 	startNews = [
-	{
-		title: 'First news',
-		preview: 'Lorem ipsum dolor sit amet',
-		content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita maxime, nobis magni itaque veritatis autem tenetur cum consequatur nemo error amet ipsam, at reiciendis porro tempora eius doloribus ratione, aperiam.'
-	},
-	{
-		title: 'Second news',
-		preview: 'Lorem ipsum dolor sit amet',
-		content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita maxime, nobis magni itaque veritatis autem tenetur cum consequatur nemo error amet ipsam, at reiciendis porro tempora eius doloribus ratione, aperiam.'
-	},
-	{
-		title: 'Third news',
-		preview: 'Lorem ipsum dolor sit amet',
-		content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita maxime, nobis magni itaque veritatis autem tenetur cum consequatur nemo error amet ipsam, at reiciendis porro tempora eius doloribus ratione, aperiam.'
-	}
-		];
+		{
+			title: 'First news',
+			preview: 'Lorem ipsum dolor sit amet',
+			content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita maxime, nobis magni itaque veritatis autem tenetur cum consequatur nemo error amet ipsam, at reiciendis porro tempora eius doloribus ratione, aperiam.'
+		},
+		{
+			title: 'Second news',
+			preview: 'Lorem ipsum dolor sit amet',
+			content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita maxime, nobis magni itaque veritatis autem tenetur cum consequatur nemo error amet ipsam, at reiciendis porro tempora eius doloribus ratione, aperiam.'
+		},
+		{
+			title: 'Third news',
+			preview: 'Lorem ipsum dolor sit amet',
+			content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita maxime, nobis magni itaque veritatis autem tenetur cum consequatur nemo error amet ipsam, at reiciendis porro tempora eius doloribus ratione, aperiam.'
+		}
+	];
 
 var AddNewsItem = React.createClass({
 
