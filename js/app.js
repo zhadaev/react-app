@@ -17,23 +17,37 @@ news = [
 	}
 ];
 
-var TestInput = React.createClass({
+var AddNewsItem = React.createClass({
 
-	// getInitialState: function(){
-	// 	return {
-	// 		inputValue: ''
-	// 	}
-	// },
+	getInitialState: function() {
+		return {
+			isBtnDisabled: true
+		}
+	},
 
-	//changeInput: function(e){
-		//this.setState({inputValue: e.target.value});
-	//},
+	componentDidMount: function() {
+		ReactDOM.findDOMNode(this.refs.newsHeader).focus();
+	},
 
-	showInputValue: function(){
-		var someVar = ReactDOM.findDOMNode(this.refs.myTestInput).value;
-		console.log(this.refs);
-		console.log(someVar);
+	addNews: function(){
+		var newsTitle = ReactDOM.findDOMNode(this.refs.newsHeader).value,
+			newsContent = ReactDOM.findDOMNode(this.refs.newsContent).value;
 
+		if (newsTitle.trim() && newsContent.trim()) {
+			alert(newsTitle + '\n' +  newsContent);
+		} else {
+			alert('All fields are required');
+		}
+
+		alert(newsTitle + '\n' +  newsContent);
+	},
+
+	onTermsChange: function(e){
+		//ReactDOM.findDOMNode(this.refs.addBtn).disabled = ! e.target.checked;
+
+		this.setState({
+			isBtnDisabled: false
+		});
 	},
 
 	render: function(){
@@ -42,10 +56,19 @@ var TestInput = React.createClass({
 				<input
 					type="text"
 					defaultValue = ""
-					ref = "myTestInput"
-					placeholder="Input some text..."
-				/>
-				<button ref="button-ref" onClick={this.showInputValue}>Show Input value</button>
+					ref = "newsHeader"
+					placeholder="Input news title"
+				/><br/>
+				<textarea
+					defaultValue=""
+					ref="newsContent"
+					placeholder="Input news content"
+				></textarea><br/>
+				<label>
+					<input type="checkbox" onChange={this.onTermsChange} />
+						I agree with terms
+				</label><br/>
+				<button onClick={this.addNews} disabled={this.state.isBtnDisabled}>Add news item</button>
 			</div>
 		)
 	}
@@ -60,9 +83,7 @@ var Article =  React.createClass({
 
 	showNewsContent: function(e){
 		e.preventDefault();
-		this.setState({visible: true}, function(){
-			console.log('visible state changed'); // callback function
-		});
+		this.setState({visible: true});
 	},
 
 	render: function(){
@@ -70,8 +91,6 @@ var Article =  React.createClass({
 			preview = this.props.data.preview,
 			content = this.props.data.content,
 			visible = this.state.visible;
-
-		//console.log('render', this);
 
 		return (
 			<div>
@@ -134,7 +153,7 @@ var App = React.createClass({
 			<div className="app-wrapper">
 				<h1 className="app-header">App header</h1>
 				<hr/>
-				<TestInput />
+				<AddNewsItem />
 				<hr/>
 				<News data={news}/>
 				<hr/>
